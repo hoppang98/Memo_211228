@@ -1,6 +1,11 @@
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /static/**
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/memo_220119?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: root

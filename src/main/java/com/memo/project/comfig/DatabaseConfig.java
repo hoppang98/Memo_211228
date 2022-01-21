@@ -1,4 +1,4 @@
-package com.memo.project;
+package com.memo.project.comfig;
 
 import javax.sql.DataSource;
 
@@ -26,3 +26,4 @@ public class DatabaseConfig {
 		
 	}
 }
+
