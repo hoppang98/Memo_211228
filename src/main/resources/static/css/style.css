@@ -1,4 +1,24 @@
 @charset "UTF-8";
 
-footer {height:80px;}
+#wrap {
+	width:1200px;
+	height:800px;
+	margin:auto;
+}
+
+header{
+	height:70px;
+}
+
+.content {
+	
+}
+.content > .join-box {
+	width:400px;
+}
+
+footer {
+	height:50px;
+	}
+	
 footer .address {font-size:18px; color:#999;}
