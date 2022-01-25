@@ -13,7 +13,7 @@ public class UserController {		// view랑 연결하는 컨트롤러
 	
 	//회원가입 view로 이동
 	 @GetMapping("/signgup_view")
-	    public String loginMainPage() {
+	    public String signupView() {
 	        return "/user/signUp";
 	    }
 	 
