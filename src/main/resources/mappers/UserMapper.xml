@@ -23,4 +23,20 @@
 		)
 	</insert>
 	
+	<select id="selectUser" parameterType="map" resultType="com.memo.project.user.model.User"> <!-- 파라미터 여러개 전달받는 경우는 parameterType이 무조건 map -->
+		SELECT
+			`id`
+			,`loginId`
+			,`password`
+			,`name`
+			,`email`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId}			<!-- 두가지가 모두 일치하는 경우에 로그인 성공 -->
+			AND `password` = #{password} 
+	</select>
+	
 </mapper>

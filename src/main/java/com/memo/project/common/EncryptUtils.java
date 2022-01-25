@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class EncryptUtils {
 
 	// md5 암호화 메소드 사용법
-	public String md5(String message) {
+	public static String md5(String message) { //static 붙여주면 객체생성 없이 이 메소드를 다른 클래스에서 그대로 호출 가능
 		String encData = "";
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -27,8 +27,8 @@ public class EncryptUtils {
 			
 			
 		} catch (NoSuchAlgorithmException e) {
-
 			e.printStackTrace();
+			return null;
 		}
 		
 		return encData;
