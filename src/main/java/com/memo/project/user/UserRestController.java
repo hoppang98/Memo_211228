@@ -49,7 +49,7 @@ public class UserRestController {
 			@RequestParam("password") String password,
 			HttpServletRequest request					//HttpServletRequest request객체를 추가해서 session 객체를 가져올 수 있다.
 			){
-		User user = userBO.getUser(loginId, password);
+		User user = userBO.getUser(loginId, password);	// user 정보 모델 객체로 통채로 가져올 생각
 		Map<String, String> result = new HashMap<>();
 		
 		// 일치하는 결과가 없으면 user에 null이 들어가있음
