@@ -42,7 +42,7 @@ public class UserRestController {
 		return result;
 	}
 	
-	
+	// 로그인 - 세션에 값을 저장하는 과정
 	@PostMapping("/sign_in")
 	public Map<String, String> signIn(
 			@RequestParam("loginId") String loginId,

@@ -23,7 +23,7 @@ public class UserController {		// view랑 연결하는 컨트롤러
 			 return "/user/signIn";
 		 }
 	 
-	 // 로그아웃
+	 // 로그아웃 - 세션을 제거
 	 @GetMapping("/sign_out")
 	 public String signOut(HttpServletRequest request) {		// session에 있는 유저정보를 지워서 로그아웃
 		 HttpSession session = request.getSession();
