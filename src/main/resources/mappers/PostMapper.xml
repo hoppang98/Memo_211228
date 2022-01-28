@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.memo.project.post.dao.PostDAO">
+
+	<insert id="insertPost" parameterType="map">
+		INSERT INTO `post`
+		(
+			`userId`
+			,`subject`
+			,`content`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{userId}
+			,#{subject}
+			,#{content}
+			,now()
+			,now()
+		)
+	</insert>
+	
+	<!-- 메모 목록보기 -->
+	<select id="selectPostList" resultType="com.memo.project.post.model.Post" parameterType="int">
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+			,`content`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`userId` = #{userId}
+		ORDER BY `id` DESC <!-- 역순으로 가져와서 리스트에 넣는다. 그래야 4 3 2 1 이런 순서로 나와서 최근 글 파악 가능 -->
+	</select>
+	
+	<!-- 메모 상세보기 -->
+	<select id="selectPost" resultType="com.memo.project.post.model.Post" parameterType="int">
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+			,`content`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{postId} <!-- 위의 id값과 dao에서 보내온 postId가 일치하는 메모만 가져온다 -->
+	</select>
+	
+	<!-- 메모 삭제 -->
+	<delete id="deletePost" parameterType="int">
+		DELETE FROM `post`
+		WHERE
+			`id` = #{postId}
+	</delete>
+	
+	<!-- 메모 수정 -->
+	<update id="updatePost" parameterType="map">
+		UPDATE `post`
+		SET
+			`subject` = #{subject}
+			`content` = #{content}
+			`updatedAt` = now()
+		WHERE
+			`id` = #{postId}
+	</update>
+	
+
+</mapper>
