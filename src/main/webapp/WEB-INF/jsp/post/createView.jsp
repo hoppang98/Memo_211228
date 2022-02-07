@@ -59,15 +59,13 @@
 				var formData = new FormData(); // 파일 전송을 위해서는 formData 객체를 만들어야 한다., 파라미터 전달과정이 원래 하던 ajax와 다르다.
 				formData.append("subject", title);
 				formData.append("content", content);
-				formData.append("file"), $("#fileInput")[0].files[0]; // 파일을 하나만 올리는 경우에는 files[0]
-				
-				
+				formData.append("file", $("#fileInput")[0].files[0]); // 파일을 하나만 올리는 경우에는 files[0]
 				
 				$.ajax({
 					type:"post"
 					,url:"/post/create"
 					,data:formData
-					,enctype="multipart/form-data"		// 파일 업로드시 필수
+					,enctype:"multipart/form-data"		// 파일 업로드시 필수
 					,processData:false					// 파일 업로드시 필수 - 일반적인 파라미터 전달이 아니라는 뜻
 					,contentType:false					// 파일 업로드시 필수 - 일반적인 파라미터 전달이 아니라는 뜻
 					,success:function(data){

@@ -10,6 +10,7 @@
 			`userId`
 			,`subject`
 			,`content`
+			,`imagePath`
 			,`createdAt`
 			,`updatedAt`
 		)
@@ -18,6 +19,7 @@
 			#{userId}
 			,#{subject}
 			,#{content}
+			,#{imagePath}
 			,now()
 			,now()
 		)

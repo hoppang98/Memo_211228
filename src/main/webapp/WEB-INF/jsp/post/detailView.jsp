@@ -30,6 +30,9 @@
 					<input type="text" class="form-control col-11" id="titleInput" value="${post.subject}">
 				</div>
 				<textarea class="form-control mt-3" rows="5" id="contentInput">${post.content}</textarea>
+				<div>
+					<img src="${post.imagePath}">
+				</div>
 				<div class="d-flex justify-content-between mt-3">
 					<div>
 						<a href="/post/list_view" class="btn btn-info">목록으로</a>
@@ -55,6 +58,7 @@
 					,data:{"postId":postId}
 					,success:function(data) {
 						if(data.result == "success"){
+							alert("삭제 성공!");
 							location.href="/post/list_view";
 						} else {
 							alert("삭제 실패");
@@ -74,14 +78,15 @@
 					type:"post"
 					,url:"/post/update"
 					,data:{"postId":postId, "subject":title, "content":content}
-					,success:fucntion(data) {
+					,success:function(data) {
 						if(data.result == "success"){
+							alert("수정 성공!");
 							location.href="/post/list_view";
 						} else {
 							alert("수정 실패");
 						}
 					}, error:function(){
-						alert("삭제 실패");
+						alert("에러 발생");
 					}
 				});
 			});

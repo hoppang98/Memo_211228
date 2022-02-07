@@ -27,7 +27,8 @@ public class PostRestController {		// api
 	public Map<String, String> create(
 			@RequestParam("subject") String subject,
 			@RequestParam("content") String content,
-			@RequestParam("file") MultipartFile file, // 사진파일 처리는 bo가 담당
+			@RequestParam(value="file", required=false) MultipartFile file, // 사진파일 처리는 bo가 담당
+			// file에서 사진파일은 메모의 필수요소가 아니라서 value와 required 추가
 			HttpServletRequest request
 			){
 		
@@ -37,7 +38,7 @@ public class PostRestController {		// api
 		// 현재 로그인 된 사용자의 user table id(pk)값이 필요 -> UserRestController의 sign_in에서 session에 저장되어있다.
 		int userId = (Integer)session.getAttribute("userId");  //userId라는 key를 통해 session에서 userId를 가져온다. get으로 가져오면 object타입을 살려서 가져와서 int -> Integer로 다운캐스팅을 해줘야함
 		
-		int count = postBO.addPost(userId, subject, content, file);
+		int count = postBO.addPost(userId, subject, content, file); 
 		
 		Map<String, String> result = new HashMap<>();
 		
@@ -67,12 +68,20 @@ public class PostRestController {		// api
 		return result;
 	}
 	
-//	@PostMapping("/update")
-//	public Map<String, String> postUpdate(
-//			@RequestParam("postId") int postId,
-//			@RequestParam("subject") String subject,
-//			@RequestParam("content") String content
-//			){
-//		// 여기에 수정코드 추가
-//	}
+	@PostMapping("/update")
+	public Map<String, String> postUpdate(
+			@RequestParam("postId") int postId,
+			@RequestParam("subject") String subject,
+			@RequestParam("content") String content
+			){
+		int count = postBO.updatePost(postId, subject, content);
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		return result;
+	}
 }
