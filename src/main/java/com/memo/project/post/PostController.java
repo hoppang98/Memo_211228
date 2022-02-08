@@ -29,7 +29,7 @@ public class PostController { //view / view는 무조건 GetMapping
 		
 		// 로그인한 사용자의 글만 가져온다. -> session
 		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId"); // get으로 가져오면 get으로 가져오면 object타입을 살려서 가져와서 해당 타입이 object라 Integer로 다운캐스팅 
+		int userId = (Integer)session.getAttribute("userId"); // get으로 가져오면 object타입을 살려서 가져와서 해당 타입이 object라 Integer로 다운캐스팅 
 		
 		List<Post> postlist = postBO.getPostList(userId);
 		model.addAttribute("postlist", postlist);
