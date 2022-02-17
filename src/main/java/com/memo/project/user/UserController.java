@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {		// view랑 연결하는 컨트롤러
 	
 	//회원가입 view로 이동
-	 @GetMapping("/signgup_view")
+	 @GetMapping("/signup_view")
 	    public String signupView() {
 	        return "/user/signUp";
 	    }
