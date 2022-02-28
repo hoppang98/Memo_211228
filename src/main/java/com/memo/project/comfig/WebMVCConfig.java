@@ -23,7 +23,7 @@ public class WebMVCConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///" + FileManagerService.FILE_UPLOAD_PATH); // FILE_UPLOAD_PATH 경로 아래에 있는 모든 파일
 	}
 	
-	// 비 로그인시 메모 리스트에 접근 못하게 설정 - interceptor사용으로 모든 페이지가 interceptor를 거쳐가게 한다.
+	// 비 로그인시 메모 리스트에 접근 못하게 설정, 로그인시 로그인,회원가입 화면에 접근 못하도록 설정 - interceptor사용으로 모든 페이지가 interceptor를 거쳐가게 한다.
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(permissionInterceptor)
