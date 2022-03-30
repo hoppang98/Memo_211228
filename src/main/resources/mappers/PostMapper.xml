@@ -70,10 +70,10 @@
 		UPDATE `post`
 		SET
 			`subject` = #{subject}
-			`content` = #{content}
-			`updatedAt` = now()
+			, `content` = #{content}
+			, `updatedAt`= now()
 		WHERE
-			`id` = #{postId}
+			`id`=#{postId}
 	</update>
 	
 

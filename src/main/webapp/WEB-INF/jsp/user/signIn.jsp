@@ -33,7 +33,7 @@
 					<button type="submit" class="btn btn-info btn-block mt-3">로그인</button>
 					
 					<div class="text-center mt-2">
-						<a href="/user/signgup_view">회원가입</a>
+						<a href="/user/signup_view">회원가입</a>
 					</div>
 				</div>
 			</form>

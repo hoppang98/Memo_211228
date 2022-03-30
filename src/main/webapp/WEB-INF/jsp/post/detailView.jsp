@@ -38,7 +38,7 @@
 						<a href="/post/list_view" class="btn btn-info">목록으로</a>
 						<button type="button" class="btn btn-danger" id="deleteBtn" data-post-id="${post.id}">삭제</button><%-- data-post-id로 button 객체에 데이터를 저장 --%>
 					</div>
-					<button type="button" class="btn btn-success" id="updateBtn">수정</button>
+					<button type="button" class="btn btn-success" id="updateBtn" data-post-id="${post.id}">수정</button>
 				</div>
 			</div>
 		</section>
@@ -70,9 +70,9 @@
 			});
 			
 			$("#updateBtn").on("click", function(){
+				let postId = $(this).data("post-id");
 				let title = $("#titleInput").val();
 				let content = $("#contentInput").val().trim();
-				let postId = $(this).data("post-id");
 				
 				$.ajax({
 					type:"post"
